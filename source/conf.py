@@ -33,7 +33,11 @@ release = 'v0.0.1'
 extensions = [
      'recommonmark',
      'sphinx_markdown_tables',
-     'sphinxcontrib.video'
+     'sphinxcontrib.video',
+     'sphinx.ext.autodoc',
+     'sphinx.ext.viewcode',
+     'sphinx.ext.githubpages',
+     'rst2pdf.pdfbuilder'
  ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -52,6 +56,15 @@ html_context = {
 	"github_repo":"thinking-in-pcie",
 	"github_version":"main/source/"
 }
+
+# -- Options for PDF output --------------------------------------------------
+
+pdf_documents = [
+    ('index', 'thinking-in-pcie', 'thinking-in-pcie', 'pfnie'),
+]
+
+pdf_stylesheets = ['sphinx', 'kerning', 'a4']
+pdf_language = "en_US"
 
 # -- Options for HTML output -------------------------------------------------
 

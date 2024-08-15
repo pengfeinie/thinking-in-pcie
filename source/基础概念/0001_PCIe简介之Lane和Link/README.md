@@ -22,9 +22,28 @@ PCIe x1、x2、x4、x8和x16表示的是PCIe总线使用的通道数。通道数
 
 所谓的Link，是指两个PCIe部件的链接，通常是由端口和lane组成。（通常有多条lane）比如我们有一个X2的链路，意思是指这条链路是两条lane组成，一共8条物理连线。链路上传送的是编码之后的数据，比如Gen1/Gen2所采用的8b/10b编码，Gen3之后改成了128b/130b编码。Link初始化以及link建立过程（或者称之为链路训练，Link Training）是在设备上电或者链路重新建立链接是发生的。多条lane组成的link，有效的扩展了link的带宽。Lane的初始化和多条lane的组合优化，是在link的初始化训练过程中实现的。
 
+Link的速率在初始化以后确定，所有lane的信号速率一样。如PCIe 3.0情况下，每条lane每秒每个方向都提供8GT/s(千兆传输/秒)。假设是X4的Link，则链路每个方向的速率为32GT/s（8.0X4）。
+
+Link的初始化和协商，确定lane宽度以及速率，是不需要操作系统或者软件参与的，纯粹是芯片的硬件行为。
+
+协议定义的允许的宽度组合为x1, x2, x4, x8, x12, x16, 以及x32 Lane。每条Link至少有一个lane。
+
+
+
+**思考**
+
+- 可以任意条lane组成一个link么？
+
+不可以。协议规定了只能是x1, x2, x4, x8, x12, x16, x32。
+
+- lane0和lane1可以交换顺序交叉连接么?
+
+可以。协议上这种特性叫Lane Reversal。不过需要注意的是，这个是可选特性，不是每个设备都支持的。
+
 
 
 **参考**
 
 1. [https://www.pcietech.com/124.html/](https://www.pcietech.com/124.html/)
+1. [关于Link的更多理解 – PCIe技术网 (pcietech.com)](https://www.pcietech.com/128.html/)
 
