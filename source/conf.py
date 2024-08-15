@@ -48,9 +48,9 @@ exclude_patterns = []
 # add "Edit on Github"
 html_context = {
 	"display_github": True,
-	"github_user": "pengfeinie"
-	"github_repo": "thinking-in-pcie"
-	"github_version": "main/source"
+	"github_user":"pengfeinie",
+	"github_repo":"thinking-in-pcie",
+	"github_version":"main/source/"
 }
 
 # -- Options for HTML output -------------------------------------------------
