@@ -45,6 +45,11 @@ extensions = [
 exclude_patterns = []
 
 
+# add "Edit on Github"
+html_context = {
+	"display_github": True
+}
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
