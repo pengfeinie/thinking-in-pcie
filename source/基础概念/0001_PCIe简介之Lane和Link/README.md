@@ -28,7 +28,20 @@ Link的初始化和协商，确定lane宽度以及速率，是不需要操作系
 
 协议定义的允许的宽度组合为x1, x2, x4, x8, x12, x16, 以及x32 Lane。每条Link至少有一个lane。
 
+**基于PCIe卡规格的分类**
 
+PCIe卡的规格通常由通道的数量表示。一般来说，PCIe卡有五种物理规格：x1、x4、x8、x16和x32。（PCIe x32十分少见，并非主流规格。）“x”后面的数字是指PCIe插槽内的通道数，如PCIe x4卡意味着该卡有四个通道。
+
+![](images/_1585046580_HZvAytpGoc.jpg)
+
+在实际应用中，需要将PCIe卡插入主机或服务器的PCIe插槽中，插槽的规格和配置与该卡相同。然而，面对像插槽短缺的情况，PCIe卡也可以安装到一个更宽的插槽。比如在PCIe x8插槽已被占用的情况下，可以将PCIe x8卡放入PCIe x16插槽中，但该卡将始终以PCIe x8模式运行。PCIe卡规格信息详见下表。
+
+| 插槽宽度 | 引脚数 | 长度 |
+| -------- | ------ | ---- |
+| PCIe x1  | 18     | 25mm |
+| PCIe x4  | 21     | 39mm |
+| PCIe x8  | 49     | 56mm |
+| PCIe x16 | 82     | 89mm |
 
 **思考**
 
@@ -46,4 +59,5 @@ Link的初始化和协商，确定lane宽度以及速率，是不需要操作系
 
 1. [https://www.pcietech.com/124.html/](https://www.pcietech.com/124.html/)
 1. [关于Link的更多理解 – PCIe技术网 (pcietech.com)](https://www.pcietech.com/128.html/)
+1. [https://community.fs.com/cn/article/pcie-card-selection-guide.html](https://community.fs.com/cn/article/pcie-card-selection-guide.html)
 
